@@ -2,6 +2,8 @@ ENV['RAILS_ENV'] ||= 'test'
 
 require File.expand_path('../../config/environment', __FILE__)
 
+Dir[File.expand_path(File.join(File.dirname(__FILE__),'support','**','*.rb'))].each {|f| require f}
+
 if Rails.env.production?
   abort("The Rails environment is running in production mode!")
 end
