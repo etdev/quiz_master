@@ -16,6 +16,11 @@ dependencies:
         background: true
     - cd client && npm rebuild node-sass && cd ..
 
+database:
+  override:
+    # replace CircleCI's generated database.yml
+    - cd api && bundle exec rake db:create db:schema:load && cd ..
+
 test:
   override:
     - cd api && bundle exec rails spec && cd ..
