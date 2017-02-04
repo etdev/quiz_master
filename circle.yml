@@ -9,10 +9,11 @@ checkout:
 
 dependencies:
   pre:
-    - cd api && bundle install --path=vendor/bundle && cd ..
+    - cd api && bundle install && cd ..
     - cd client && npm install && cd ..
   post:
-    - cd api && bundle exec rails server -p 8080 && cd ..
+    - cd api && bundle exec rails server -p 8080 && cd ..:
+        background: true
     - cd client && npm rebuild node-sass && cd ..
 
 test:
