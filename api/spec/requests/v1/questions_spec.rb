@@ -16,4 +16,22 @@ RSpec.describe "Questions API" do
       expect(json_data(response)["questions"].length).to eq(2)
     end
   end
+
+  context "POST new question" do
+    it "is successful" do
+      question = build(:question)
+
+      post v1_questions_path, question: question.attributes
+
+      expect(response).to be_success
+    end
+
+    it "is increases number of questions by one" do
+      question = build(:question)
+
+      post v1_questions_path, question: question.attributes
+
+      expect(Question.count).to eq(1)
+    end
+  end
 end

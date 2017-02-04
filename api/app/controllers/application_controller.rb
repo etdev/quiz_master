@@ -8,4 +8,8 @@ class ApplicationController < ActionController::API
       total_count: collection.total_count
     }
   end
+
+  def default_error(errors)
+    { errors: errors }
+  end
 end
