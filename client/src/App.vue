@@ -1,21 +1,26 @@
 <template>
   <div id="app">
-    <header>
-      <main-nav/>
+    <header class="header header--main">
+      <main-nav></main-nav>
     </header>
-    <main>
+
+    <main class="main">
       <transition name="fade" mode="out-in">
         <router-view class="view"></router-view>
       </transition>
     </main>
+
+    <main-footer>
+    </main-footer>
   </div>
 </template>
 
 <script>
 import MainNav from "components/MainNav";
+import MainFooter from "components/MainFooter";
 
 export default {
-  components: { MainNav },
+  components: { MainNav, MainFooter },
 };
 
 </script>

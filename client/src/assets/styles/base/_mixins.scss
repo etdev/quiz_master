@@ -1,0 +1,6 @@
+@mixin activated {
+  &:hover,
+  &:active {
+    @content;
+  }
+}

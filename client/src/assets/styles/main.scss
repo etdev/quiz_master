@@ -8,8 +8,11 @@
 @import "~assets/styles/base/app";
 
 /* layout */
+@import "~assets/styles/layout/nav";
+@import "~assets/styles/layout/header";
+@import "~assets/styles/layout/footer";
+@import "~assets/styles/layout/main";
 
 /* components */
-@import "~assets/styles/components/nav";
 
 /* pages */
