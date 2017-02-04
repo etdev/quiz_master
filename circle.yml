@@ -8,8 +8,12 @@ checkout:
   post:
 
 dependencies:
+  pre:
+    - cd api && bundle install --path=vendor/bundle && cd ..
+    - cd client && npm install && cd ..
   post:
-    - npm rebuild node-sass
+    - cd api && bundle exec rails server -p 8080 && cd ..
+    - cd client && npm rebuild node-sass && cd ..
 
 test:
   override:
