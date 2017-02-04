@@ -1,0 +1,5 @@
+current directory: /Users/eric/projects/quiz_master/api/vendor/bundle/ruby/2.3.0/gems/rainbow-2.2.1/ext
+/Users/eric/.rbenv/versions/2.3.1/bin/ruby mkrf_conf.rb
+
+current directory: /Users/eric/projects/quiz_master/api/vendor/bundle/ruby/2.3.0/gems/rainbow-2.2.1/ext
+/Users/eric/.rbenv/versions/2.3.1/bin/ruby -rubygems /Users/eric/projects/quiz_master/api/vendor/bundle/ruby/2.3.0/gems/rake-12.0.0/exe/rake RUBYARCHDIR=/Users/eric/projects/quiz_master/api/vendor/bundle/ruby/2.3.0/extensions/x86_64-darwin-16/2.3.0-static/rainbow-2.2.1 RUBYLIBDIR=/Users/eric/projects/quiz_master/api/vendor/bundle/ruby/2.3.0/extensions/x86_64-darwin-16/2.3.0-static/rainbow-2.2.1

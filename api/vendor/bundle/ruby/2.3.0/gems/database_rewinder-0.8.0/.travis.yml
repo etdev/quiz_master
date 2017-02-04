@@ -1,0 +1,34 @@
+language: ruby
+
+cache: bundler
+
+env:
+  - DB=sqlite3
+  - DB=mysql
+  - DB=postgresql
+
+rvm:
+  - 2.0.0
+  - 2.1.10
+  - 2.2.6
+  - 2.3.3
+
+gemfile:
+  - gemfiles/rails_40.gemfile
+  - gemfiles/rails_41.gemfile
+  - gemfiles/rails_42.gemfile
+  - gemfiles/rails_50.gemfile
+  - gemfiles/rails_edge.gemfile
+
+sudo: false
+
+matrix:
+  exclude:
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails_edge.gemfile
+    - rvm: 2.1.10
+      gemfile: gemfiles/rails_edge.gemfile
+    - rvm: 2.0.0
+      gemfile: gemfiles/rails_50.gemfile
+    - rvm: 2.1.10
+      gemfile: gemfiles/rails_50.gemfile
