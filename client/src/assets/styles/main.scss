@@ -1,18 +1,19 @@
 /* vendor */
-@import "~assets/styles/vendor/neat/neat";
-@import "~assets/styles/vendor/normalize";
+@import "vendor/neat/neat";
+@import "vendor/normalize";
 
 /* base */
-@import "~assets/styles/base/variables";
-@import "~assets/styles/base/mixins";
-@import "~assets/styles/base/app";
+@import "base/variables";
+@import "base/mixins";
+@import "base/app";
 
 /* layout */
-@import "~assets/styles/layout/nav";
-@import "~assets/styles/layout/header";
-@import "~assets/styles/layout/footer";
-@import "~assets/styles/layout/main";
+@import "layout/nav";
+@import "layout/header";
+@import "layout/footer";
+@import "layout/main";
 
 /* components */
+@import "components/home";
 
 /* pages */

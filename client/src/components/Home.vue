@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <h1>Welcome to QuizMaster</h1>
-
     <question-list/>
   </div>
 </template>
