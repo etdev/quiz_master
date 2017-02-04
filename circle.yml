@@ -1,0 +1,17 @@
+machine:
+  node:
+    version: 5.12.0
+  pre:
+  environment:
+
+checkout:
+  post:
+
+dependencies:
+  post:
+    - npm rebuild node-sass
+
+test:
+  override:
+    - cd api && bundle exec rails spec && cd ..
+    - cd client && npm run unit && cd ..
