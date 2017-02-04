@@ -1,28 +1,24 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <hello></hello>
+    <header>
+      <main-nav/>
+    </header>
+    <main>
+      <transition name="fade" mode="out-in">
+        <router-view class="view"></router-view>
+      </transition>
+    </main>
   </div>
 </template>
 
 <script>
-import Hello from './components/Hello';
+import MainNav from "components/MainNav";
 
 export default {
-  name: 'app',
-  components: {
-    Hello,
-  },
+  components: { MainNav },
 };
+
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>

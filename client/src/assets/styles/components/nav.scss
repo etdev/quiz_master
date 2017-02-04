@@ -1,0 +1,10 @@
+@import "~assets/styles/base/_variables";
+@import "~assets/styles/base/_mixins";
+
+.nav {
+  &--main {
+    background: $action-color;
+    color: #fff;
+    height: $main-nav-height;
+  }
+}
