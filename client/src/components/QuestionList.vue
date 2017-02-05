@@ -2,6 +2,9 @@
   <ul class="question-list">
     <li v-for="question in questions" class="question">
       {{ question }}
+      <router-link :to="answerQuestionPath(question)">
+        Answer Question
+      </router-link>
     </li>
   </ul>
 </template>
@@ -27,6 +30,9 @@ export default {
           this.questions = resp.data.questions;
         },
       );
+    },
+    answerQuestionPath(question) {
+      return `/question/${question.id}`;
     },
   },
 };

@@ -8,12 +8,22 @@ module V1
       render json: @questions, meta: meta_data(@questions)
     end
 
+    def show
+      @question = Question.find_by(id: params[:id])
+
+      if @question
+        render json: @question
+      else
+        render default_error(["Question does not exist"], :not_found)
+      end
+    end
+
     def create
       @question = Question.create(question_params)
       if @question.save
         render json: @question
       else
-        render json: default_error(@question.errors)
+        render default_error(@question.errors, :unprocessable_entity)
       end
     end
 

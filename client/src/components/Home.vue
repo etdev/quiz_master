@@ -20,5 +20,10 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
+@import "src/assets/styles/vendor/neat/_neat.scss";
+
+.home {
+  @include outer-container;
+}
 </style>

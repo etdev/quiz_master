@@ -9,7 +9,10 @@ class ApplicationController < ActionController::API
     }
   end
 
-  def default_error(errors)
-    { errors: errors }
+  def default_error(errors, status = :internal_server_error)
+    {
+      json: { errors: errors },
+      status: status
+    }
   end
 end

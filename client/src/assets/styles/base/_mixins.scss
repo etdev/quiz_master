@@ -4,3 +4,13 @@
     @content;
   }
 }
+
+@mixin focused {
+  &:focus {
+    @content;
+  }
+}
+
+@mixin animate-default($property) {
+  transition: $property .2s cubic-bezier(.645,.045,.355,1);
+}

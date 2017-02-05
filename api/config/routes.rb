@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   namespace :v1 do
-    resources :questions, only: [:index, :create]
+    resources :questions, only: [:index, :show, :create]
+    resources :guess_checks, only: [:show]
   end
 end
