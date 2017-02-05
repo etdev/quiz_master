@@ -33,15 +33,15 @@ export default {
 .main-nav {
   display: flex;
   justify-content: space-between;
-  background: $action-color;
-  color: #fff;
+  max-width: 1200px;
+  flex-grow: 1;
 }
 
 .main-nav__app-logo-box {
   flex: 0;
   font-size: 1.6rem;
   font-weight: bold;
-  padding: 1rem;
+  padding: 1rem 0;
 }
 
 .main-nav__app-logo {
@@ -68,9 +68,10 @@ export default {
   padding: 0 1rem;
   color: #fff;
   font-weight: bold;
+  @include animate-default(background-color);
 
   @include activated {
-    background: lighten($action-color, 2%);
+    background: lighten($action-color, 2.5%);
   }
 }
 </style>

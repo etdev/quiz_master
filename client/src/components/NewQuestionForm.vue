@@ -2,10 +2,9 @@
   <div class="new-question-form">
     <h1>New Question</h1>
     <form class="form">
-      <div class="form__row">
-        <label for="content" class="form__label">Content:</label>
-        <input type="text" class="form__text-input" name="content" v-model="content">
-      </div>
+      <label for="content" class="form__label">Content:</label>
+      <markdown-editor></markdown-editor>
+
       <div class="form__row">
         <label for="answer" class="form__label">Answer:</label>
         <input type="text" name="answer" v-model="answer" class="form__text-input">
@@ -21,10 +20,13 @@
 
 <script>
 import api from 'services/api';
+import MarkdownEditor from 'components/MarkdownEditor';
 
 export default {
   name: 'question-list',
-  components: {},
+  components: {
+    MarkdownEditor,
+  },
   created() { },
   data() {
     return {

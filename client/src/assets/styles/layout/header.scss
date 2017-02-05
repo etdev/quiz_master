@@ -1,2 +1,11 @@
+@import "~assets/styles/base/variables";
+
 .header {
+  display: flex;
+  justify-content: center;
+
+  &--main {
+    background: $action-color;
+    color: #fff;
+  }
 }

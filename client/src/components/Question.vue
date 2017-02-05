@@ -1,13 +1,13 @@
 <template>
   <div class="question" v-if="question">
     <div class="question__content">
-      <h3>{{ question.content }}</h3>
+      <h1>{{ question.content }}</h1>
     </div>
 
-    <form class="form">
+    <form class="form" v-on:submit.prevent>
       <div class="form__row">
         <label for="guess" class="form__label">Guess:</label>
-        <input type="text" name="guess" v-model="guess" class="form__text-input">
+        <input type="text" name="guess" v-model="guess" class="form__text-input" v-on:keyup.enter="checkAnswer">
       </div>
       <div class="form__row">
         <a class="btn form__submit-btn" v-on:click="checkAnswer">
