@@ -3,6 +3,7 @@
     <h1>New Question</h1>
     <form class="form">
       <label for="content" class="form__label">Content:</label>
+
       <markdown-editor></markdown-editor>
 
       <div class="form__row">

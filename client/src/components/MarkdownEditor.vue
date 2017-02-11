@@ -1,7 +1,14 @@
 <template>
   <div class="markdown-editor">
-    <textarea class="markdown-editor__input" :value="input" @input="update"></textarea>
-    <div class="markdown-editor__preview" v-html="compiledMarkdown">
+    <textarea
+       class="markdown-editor__input"
+       v-model="inputMarkdown"
+      >
+    </textarea>
+    <div
+       class="markdown-editor__preview"
+       v-html="compiledMarkdown"
+      >
     </div>
   </div>
 </template>
@@ -13,19 +20,18 @@ import marked from 'marked';
 export default {
   data() {
     return {
-      input: '# hello',
+      inputMarkdown: '# hello',
     };
-  },
-  methods: {
-    update: _.debounce((e) => {
-      this.input = e.target.value;
-      console.log(e.target.value);
-    }, 300),
   },
   computed: {
     compiledMarkdown() {
-      return marked(this.input, { sanitize: true });
+      return marked(this.inputMarkdown, { sanitize: true });
     },
+  },
+  methods: {
+    update: _.debounce((e) => {
+      this.inputMarkdown = e.target.value;
+    }, 300),
   },
 };
 </script>
