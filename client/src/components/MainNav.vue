@@ -65,11 +65,8 @@ export default {
   font-size: 0.9em;
   font-weight: 700;
   letter-spacing: 2px;
-  text-transform: uppercase;
+  font-family: 'Pacifico';
   @include animate-default(color);
-  @include activated {
-    color: darken($text-color-mid-gray, 14%);
-  }
 }
 
 .main-nav__link-list {
@@ -92,10 +89,11 @@ export default {
   padding: 0 1rem;
   color: $text-color-mid-gray;
   font-weight: bold;
+  font-size: 1.1em;
   @include animate-default(color);
 
   @include activated {
-    color: darken($text-color-mid-gray, 14%);
+    color: darken($text-color-mid-gray, 25%);
   }
 }
 </style>

@@ -11,7 +11,7 @@
 
   @include animate-default(background-color);
   @include activated {
-    background: $action-color-light;
+    background: darken($action-color, 3%);
   }
 
   &--default {

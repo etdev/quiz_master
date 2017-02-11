@@ -7,19 +7,20 @@
 .panel {
   @include outer-container;
   margin-top: 1.5em;
-  border: 1px solid $border-color-light;
+  // border: 1px solid $border-color-light;
   border-radius: 5px;
 }
 
 .panel__heading {
   // background-color: #f5f7fa;
-  border-bottom: 1px solid $border-color-light;
+  // border-bottom: 1px solid $border-color-light;
   border-radius: 4px 4px 0 0;
   color: $panel-color-default;
-  font-size: 0.9em;
+  font-size: 1.5em;
   font-weight: 300;
   text-align: left;
-  padding: 0.5em 1em;
+  // padding: 0.5em 1em;
+  padding: 0.5em;
 }
 
 .panel__block {
@@ -28,7 +29,7 @@
 }
 
 .panel__top-section {
-  border-bottom: 1px solid $bg-color-default;
+  // border-bottom: 1px solid $bg-color-default;
   line-height: 2em;
   text-align: left;
   padding: 0.5em 1em;

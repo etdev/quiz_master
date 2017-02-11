@@ -127,6 +127,9 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    numbers_and_words (0.10.5)
+      activesupport
+      i18n
     parser (2.3.3.1)
       ast (~> 2.2)
     pg (0.19.0)
@@ -242,6 +245,7 @@ DEPENDENCIES
   guard-rspec
   kaminari
   listen (~> 3.0.5)
+  numbers_and_words
   pg (~> 0.18)
   pry
   pry-byebug

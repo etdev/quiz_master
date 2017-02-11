@@ -3,26 +3,42 @@
 
 .banner {
   display: flex;
-  height: 19rem;
+  height: 30rem;
   background: #aaa;
 
-  //background: #00c6ff; [> fallback for old browsers <]
-  //background: -webkit-linear-gradient(to left, #00c6ff , #0072ff); [> Chrome 10-25, Safari 5.1-6 <]
-  //background: linear-gradient(to left, #00c6ff , #0072ff); [> W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ <]
+  background:
+    linear-gradient(
+      rgba(0, 0, 30, 0.5),
+      rgba(0, 0, 30, 0.5)
+    ),
+    url("https://static.pexels.com/photos/94685/pexels-photo-94685.jpeg");
+  background-size: cover;
 
   &__inner {
     @include outer-container;
     display: flex;
-    height: 19rem;
+    height: 30rem;
     flex-direction: column;
     justify-content: center;
   }
 
   &__main-title {
     padding: 2rem 0;
+    font-size: 3em;
     margin: 0;
     color: #fff;
     text-align: center;
+  }
+
+  &__secondary-title {
+    padding: 0 0 2.5rem 0;
+    margin: 0;
+    font-size: 1.4em;
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 1px;
+    text-align: center;
+    font-family: 'Lato';
   }
 
   &__btn-box {

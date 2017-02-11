@@ -45,7 +45,7 @@ $thumbnail-width: $thumbnail-height;
   padding: 1em;
 
   &:not(:last-of-type) {
-    border-bottom: 1px solid $border-color-question-item;
+    // border-bottom: 1px solid $border-color-question-item;
   }
 }
 

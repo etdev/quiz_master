@@ -7,6 +7,23 @@ class Question < ApplicationRecord
   validates :category, presence: true
 
   def correct_answer?(guess)
-    answer == guess
+    sanitize(answer)
+      .casecmp(sanitize(guess))
+      .zero?
+  end
+
+  private
+
+  def sanitize(str)
+    stripped = str
+      .strip
+      .tr("-", " ")
+      .squeeze(" ")
+
+    replace_numerals_with_words(stripped)
+  end
+
+  def replace_numerals_with_words(str)
+    str.gsub(/\d+/) { |num| num.to_i.to_words }
   end
 end

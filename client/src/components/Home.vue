@@ -2,7 +2,8 @@
   <div class="home">
     <div class="banner">
       <section class="banner__inner">
-        <h1 class="banner__main-title">Welcome to QuizMaster!</h1>
+        <h1 class="banner__main-title">Simple on the surface, with more under the hood.</h1>
+        <h3 class="banner__secondary-title">QuizMaster helps you keep track of all the questions and answers you've been wondering about</h3>
         <div class="banner__btn-box">
           <a class="btn btn--primary banner__btn">Ask a Question</a>
           <a class="btn btn--default banner__btn">View Questions</a>

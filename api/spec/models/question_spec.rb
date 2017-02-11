@@ -33,7 +33,29 @@ RSpec.describe Question do
     expect(build(:question, category: nil)).to be_invalid
   end
 
-  it "accepts both numeric and spelled-out numbers" do
-    # TODO
+  it "ignores capitalization" do
+    category = build(:question, answer: "George Washington")
+    expect(category.correct_answer?("george washington")).to be(true)
+  end
+
+  it "treats spaces and hyphens the same when between words" do
+    category = build(:question, answer: "a-b-c")
+    expect(category.correct_answer?("a b c")).to be(true)
+  end
+
+  it "disregards spaces at beginning and end" do
+    category = build(:question, answer: "  a   ")
+    expect(category.correct_answer?("a")).to be(true)
+  end
+
+  it "disregards multiple spaces" do
+    category = build(:question, answer: "a b c")
+    expect(category.correct_answer?("a             b          c")).to be(true)
+  end
+
+  it "converts numbers to words" do
+    category = build(:question, answer: "5")
+    expect(category.correct_answer?("five")).to be(true)
+    expect(category.correct_answer?("5")).to be(true)
   end
 end
