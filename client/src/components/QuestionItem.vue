@@ -1,11 +1,11 @@
 <template>
   <li class="question-item" v-if="question">
-    <div class="question-item__thumbnail-box">
-      <img src="http://lorempixel.com/120/120/">
+    <div class="question-item__image-box">
+      <img :src="getImage()">
     </div>
 
     <div class="question-item__info-box">
-      <router-link :to="answerQuestionPath()" class="question-item__title">
+      <router-link :to="answerQuestionPath()" class="question-item__title link">
         {{ question.name }}
       </router-link>
       <div class="question-item__secondary-info-box">
@@ -27,68 +27,93 @@ export default {
     answerQuestionPath() {
       return `/question/${this.question.id}`;
     },
+    getImage() {
+      const images = [
+        "laptop-ipad-organic-natural-159643.jpeg",
+        "pexels-photo-160107.jpeg",
+        "pexels-photo-257092.jpeg",
+        "pexels-photo-270557.jpeg",
+        "pexels-photo-293229.jpeg",
+        "paint-notebook-brush-pencil-159657.jpeg",
+        "pexels-photo-213769.jpeg",
+        "pexels-photo-260234.jpeg",
+        "pexels-photo-270700.jpeg",
+        "pexels-photo-126345.jpeg",
+        "pexels-photo-220325.jpeg",
+        "pexels-photo-27986.jpg",
+      ];
+
+      const randomImage = images[Math.floor(Math.random() * images.length)];
+      return "/static/" + randomImage;
+    },
   },
 };
 </script>
 
 <style lang="scss" :scoped>
+@import "src/assets/styles/vendor/neat/_neat.scss";
 @import "~assets/styles/base/variables";
+@import "~assets/styles/base/mixins";
 
-$bg-color-question-item: #fefefe;
 $border-color-question-item: #eaeaea;
-$thumbnail-height: 60px;
-$thumbnail-width: $thumbnail-height;
 
 .question-item {
-  display: flex;
-  background: $bg-color-question-item;
-  padding: 1em;
+  border-radius: 4px;
+  border: 1px solid $border-color-question-item;
+  overflow: hidden;
+  margin-bottom: 1.6rem;
 
-  &:not(:last-of-type) {
-    // border-bottom: 1px solid $border-color-question-item;
+  @include span-columns(3);
+  &:nth-of-type(4n) {
+    @include omega;
   }
+
+  @include media(sm) {
+    @include span-columns(6);
+    &:nth-of-type(2n) {
+      @include omega;
+    }
+
+  }
+
+  @include media(xs) {
+    @include span-columns(12);
+    @include omega;
+  }
+
+  box-shadow: 0 5px 15px rgba(0,0,0,.05);
 }
 
-.question-item__thumbnail-box {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: $thumbnail-height;
-  width: $thumbnail-width;
-  margin: 0 0.5em 0 0;
+.question-item__image-box {
+  @include clearfix;
+  height: 12rem;
+  width: 100%;
+  overflow: hidden;
 
   img {
-    max-height: $thumbnail-height;
-    max-width: $thumbnail-width;
+    height: 100%;
+  }
+
+  @include media(sm) {
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  @include media(xs) {
+    img {
+      width: 100%;
+      height: auto;
+    }
   }
 }
 
 .question-item__info-box {
-  flex: 1;
-}
-
-.question-item__secondary-info-box {
-  display: flex;
-}
-
-.question-item__category {
-  border: 1px solid $border-color-question-item;
-  padding: 0.25rem 0.5rem;;
-  margin-top: 0.5rem;
-  font-size: 0.8em;
-  border-radius: 4px;
-  flex: 0;
-}
-
-.question-item__title {
-  color: $action-color;
-  font-weight: bold;
-  flex-grow: 0;
-}
-
-.question__secondary-info {
-  font-size: 0.8em;
-  padding-top: 0.5em;
-  color: #444;
+  @include clearfix;
+  height: 12rem;
+  width: 100%;
+  background: #fff;
+  padding: 1rem 2rem;
 }
 </style>

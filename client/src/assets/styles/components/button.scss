@@ -2,7 +2,7 @@
 @import "~assets/styles/base/mixins";
 
 .btn {
-  background: $action-color;
+  background: $text-color-mid-gray;
   border-radius: 4px;
   color: #fff;
   font-weight: bold;
@@ -11,12 +11,12 @@
 
   @include animate-default(background-color);
   @include activated {
-    background: darken($action-color, 3%);
+    background: darken($text-color-mid-gray, 4%);
   }
 
   &--default {
     background: #fff;
-    color: $action-color;
+    color: $text-color-mid-gray;
 
     @include activated {
       background: darken(#fff, 10%);

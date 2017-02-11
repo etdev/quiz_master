@@ -38,11 +38,12 @@ export default {
 
 <style lang="scss" :scoped>
 @import "src/assets/styles/vendor/neat/_neat.scss";
+@import "~assets/styles/base/variables";
+@import "~assets/styles/base/mixins";
 
 .question-list {
   @include outer-container;
-  display: flex;
-  flex-direction: column;
+  padding: 0 1rem;
 }
 
 </style>

@@ -48,25 +48,32 @@ export default {
   flex: 0;
   font-size: 1.6rem;
   font-weight: bold;
-  padding: 1rem 0;
+  padding: 1.6rem 0;
 }
 
 .main-nav__app-logo-icon {
   flex: 0;
   align-self: center;
   margin-right: 0.5rem;
-  font-size: 1.6rem;
+  font-size: 1.6em;
   color: $text-color-mid-gray;
+
+  @include media(xs) {
+    font-size: 1em;
+  }
 }
 
 .main-nav__app-logo-text {
+  font-size: 1.2em;
   color: $text-color-mid-gray;
-  font-family: 'Lato', sans-serif;
-  font-size: 0.9em;
-  font-weight: 700;
-  letter-spacing: 2px;
-  font-family: 'Pacifico';
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  font-family: 'Londrina Shadow', cursive;
   @include animate-default(color);
+
+  @include media(xs) {
+    font-size: 0.8em;
+  }
 }
 
 .main-nav__link-list {
@@ -84,6 +91,8 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: 'Open Sans';
+  font-weight: normal;
   flex: 1;
   margin: auto;
   padding: 0 1rem;
@@ -93,7 +102,7 @@ export default {
   @include animate-default(color);
 
   @include activated {
-    color: darken($text-color-mid-gray, 25%);
+    color: lighten($text-color-mid-gray, 25%);
   }
 }
 </style>

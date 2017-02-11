@@ -1,0 +1,17 @@
+@import "~assets/styles/base/variables";
+@import "~assets/styles/base/mixins";
+
+$link-color: #303133;
+$link-activated-color: #1080d0;
+
+.link {
+  color: $link-color;
+  font-size: 1.5em;
+  font-weight: 500;
+
+  @include activated {
+    color: $link-activated-color;
+  }
+
+  @include animate-default(color);
+}
