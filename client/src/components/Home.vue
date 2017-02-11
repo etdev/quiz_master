@@ -1,6 +1,14 @@
 <template>
   <div class="home">
-    <h1>Welcome to QuizMaster</h1>
+    <div class="banner">
+      <section class="banner__inner">
+        <h1 class="banner__main-title">Welcome to QuizMaster!</h1>
+        <div class="banner__btn-box">
+          <a class="btn btn--primary banner__btn">Ask a Question</a>
+          <a class="btn btn--default banner__btn">View Questions</a>
+        </div>
+      </section>
+    </div>
     <question-list/>
   </div>
 </template>
@@ -24,6 +32,5 @@ export default {
 @import "src/assets/styles/vendor/neat/_neat.scss";
 
 .home {
-  @include outer-container;
 }
 </style>

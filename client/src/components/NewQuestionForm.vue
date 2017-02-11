@@ -4,7 +4,11 @@
     <form class="form">
       <label for="content" class="form__label">Content:</label>
 
-      <markdown-editor></markdown-editor>
+      <markdown-editor
+        :inputMarkdown="content"
+        v-on:updateContent="setContent"
+        >
+      </markdown-editor>
 
       <div class="form__row">
         <label for="answer" class="form__label">Answer:</label>
@@ -31,7 +35,7 @@ export default {
   created() { },
   data() {
     return {
-      content: '',
+      content: '# hello',
       answer: '',
     };
   },
@@ -45,6 +49,9 @@ export default {
           console.log("FAILED");
         },
       );
+    },
+    setContent(newContent) {
+      this.content = newContent;
     },
   },
   computed: {

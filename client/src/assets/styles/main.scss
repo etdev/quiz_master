@@ -1,6 +1,7 @@
 /* vendor */
 @import "vendor/neat/neat";
 @import "vendor/normalize";
+@import "vendor/fonts";
 
 /* base */
 @import "base/variables";
@@ -15,5 +16,6 @@
 /* components */
 @import "components/button";
 @import "components/form";
+@import "components/banner";
 
 /* pages */

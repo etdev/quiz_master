@@ -1,0 +1,38 @@
+@import "~assets/styles/base/variables";
+@import "~assets/styles/base/mixins";
+
+.banner {
+  display: flex;
+  height: 19rem;
+  background: #aaa;
+
+  //background: #00c6ff; [> fallback for old browsers <]
+  //background: -webkit-linear-gradient(to left, #00c6ff , #0072ff); [> Chrome 10-25, Safari 5.1-6 <]
+  //background: linear-gradient(to left, #00c6ff , #0072ff); [> W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ <]
+
+  &__inner {
+    @include outer-container;
+    display: flex;
+    height: 19rem;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__main-title {
+    padding: 2rem 0;
+    margin: 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  &__btn-box {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__btn {
+    &:not(:first-of-type) {
+      margin-left: 1rem;
+    }
+  }
+}

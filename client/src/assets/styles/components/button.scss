@@ -7,9 +7,19 @@
   color: #fff;
   font-weight: bold;
   padding: 10px 15px;
+  display: inline-block;
 
   @include animate-default(background-color);
   @include activated {
     background: $action-color-light;
+  }
+
+  &--default {
+    background: #fff;
+    color: $action-color;
+
+    @include activated {
+      background: darken(#fff, 10%);
+    }
   }
 }

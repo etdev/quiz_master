@@ -2,41 +2,40 @@
   <div class="markdown-editor">
     <textarea
        class="markdown-editor__input"
-       v-model="inputMarkdown"
+       v-on:input="updateContent"
+       :value="inputMarkdown"
       >
     </textarea>
     <div
        class="markdown-editor__preview"
-       v-html="compiledMarkdown"
+       v-html="compiledHtml"
       >
     </div>
   </div>
 </template>
 
 <script>
-import _ from 'lodash';
 import marked from 'marked';
 
 export default {
   data() {
-    return {
-      inputMarkdown: '# hello',
-    };
+    return { };
   },
+  props: ['input-markdown'],
   computed: {
-    compiledMarkdown() {
+    compiledHtml() {
       return marked(this.inputMarkdown, { sanitize: true });
     },
   },
   methods: {
-    update: _.debounce((e) => {
-      this.inputMarkdown = e.target.value;
-    }, 300),
+    updateContent(e) {
+      this.$emit('updateContent', e.target.value);
+    },
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" :scoped=true>
 @import "~assets/styles/base/_variables";
 @import "~assets/styles/base/_mixins";
 

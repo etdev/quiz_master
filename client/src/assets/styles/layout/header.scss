@@ -5,7 +5,8 @@
   justify-content: center;
 
   &--main {
-    background: $action-color;
+    // background: $action-color;
     color: #fff;
+    box-shadow: 0 2px 3px hsla(0,0%,5%,.07);
   }
 }

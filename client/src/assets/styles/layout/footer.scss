@@ -1,2 +1,13 @@
+@import "~assets/styles/base/variables";
+@import "~assets/styles/base/mixins";
+
 .footer {
+  min-height: $footer-height;
+  // background: $bg-color-footer;
+  padding: 2rem;
+  border-top: 1px solid #f0f0f0;
+}
+
+.footer__inner {
+  @include outer-container;
 }

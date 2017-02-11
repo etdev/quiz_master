@@ -1,15 +1,24 @@
+@import "~assets/styles/base/variables";
+@import "~assets/styles/base/mixins";
+
+h1,
+h2,
+h3,
+strong {
+  color: #333;
+}
+
 #app {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   color: #555;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: 'Lato', Helvetica, Arial, sans-serif;
+  font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  h1,
-  h2,
-  strong {
-    color: #333;
+  font-size: 16px;
+  @include media(xs) {
+    font-size: 12px;
   }
 }

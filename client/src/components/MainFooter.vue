@@ -1,6 +1,8 @@
 <template>
   <footer class="footer footer--main">
-    Main Footer
+    <div class="footer__inner">
+      Copyright 2017, QuizMaster
+    </div>
   </footer>
 </template>
 

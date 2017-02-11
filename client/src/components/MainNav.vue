@@ -1,7 +1,8 @@
 <template>
   <nav class="main-nav">
     <div class="main-nav__app-logo-box">
-      <router-link class="main-nav__app-logo" to="/" exact>QuizMaster</router-link>
+      <i class="fa fa-mortar-board main-nav__app-logo-icon"></i>
+      <router-link class="main-nav__app-logo-text" to="/" exact>QuizMaster</router-link>
     </div>
     <ul class="main-nav__link-list">
       <li class="main-nav__link-list-item">
@@ -35,17 +36,40 @@ export default {
   justify-content: space-between;
   max-width: 1200px;
   flex-grow: 1;
+
+  @include media(xs) {
+    min-height: $main-nav-height;
+    padding: 0 0.5rem;
+  }
 }
 
 .main-nav__app-logo-box {
+  display: flex;
   flex: 0;
   font-size: 1.6rem;
   font-weight: bold;
   padding: 1rem 0;
 }
 
-.main-nav__app-logo {
-  color: #fff;
+.main-nav__app-logo-icon {
+  flex: 0;
+  align-self: center;
+  margin-right: 0.5rem;
+  font-size: 1.6rem;
+  color: $text-color-mid-gray;
+}
+
+.main-nav__app-logo-text {
+  color: $text-color-mid-gray;
+  font-family: 'Lato', sans-serif;
+  font-size: 0.9em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  @include animate-default(color);
+  @include activated {
+    color: darken($text-color-mid-gray, 14%);
+  }
 }
 
 .main-nav__link-list {
@@ -66,12 +90,12 @@ export default {
   flex: 1;
   margin: auto;
   padding: 0 1rem;
-  color: #fff;
+  color: $text-color-mid-gray;
   font-weight: bold;
-  @include animate-default(background-color);
+  @include animate-default(color);
 
   @include activated {
-    background: lighten($action-color, 2.5%);
+    color: darken($text-color-mid-gray, 14%);
   }
 }
 </style>
