@@ -3,6 +3,7 @@ module V1
     def index
       @questions = Question
         .all
+        .includes(:category)
         .page(params[:page])
 
       render json: @questions, meta: meta_data(@questions)
@@ -30,7 +31,7 @@ module V1
     private
 
     def question_params
-      params.require(:question).permit(:content, :answer)
+      params.require(:question).permit(:content, :answer, :name, :category_id)
     end
   end
 end
