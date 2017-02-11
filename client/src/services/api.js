@@ -20,9 +20,15 @@ function checkAnswer(question, guess) {
   return axios.get(`${BASE_URL}/guess_checks/${question.id}?guess=${guess}`);
 }
 
+// categories
+function getCategories() {
+  return axios.get(`${BASE_URL}/categories`);
+}
+
 export default {
   getQuestion,
   getQuestions,
   postQuestion,
   checkAnswer,
+  getCategories,
 };

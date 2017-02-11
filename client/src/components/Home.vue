@@ -9,7 +9,14 @@
         </div>
       </section>
     </div>
-    <question-list/>
+    <div class="panel">
+      <div class="panel__heading">
+        Top Questions
+      </div>
+      <div class="panel__body">
+        <question-list/>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -30,7 +37,11 @@ export default {
 
 <style lang="scss">
 @import "src/assets/styles/vendor/neat/_neat.scss";
+@import "~assets/styles/base/variables";
 
 .home {
+  background-color: $bg-color-default;
+  padding-bottom: 2rem;
+  flex: 1;
 }
 </style>

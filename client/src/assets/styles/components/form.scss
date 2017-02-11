@@ -14,7 +14,7 @@
 }
 
 .form__label {
-  flex: 0;
+  flex: 1 0;
 }
 
 .form__text-input {
@@ -38,6 +38,10 @@
   @include focused {
     border-color: $border-color-mid;
   }
+}
+
+.form__select-input {
+  flex: 1;
 }
 
 .form__label + .form__input {

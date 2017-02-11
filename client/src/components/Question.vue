@@ -1,7 +1,8 @@
 <template>
   <div class="question" v-if="question">
     <div class="question__content">
-      <h1>{{ question.content }}</h1>
+      <div v-html="contentHtml">
+      </div>
     </div>
 
     <form class="form" v-on:submit.prevent>
@@ -24,6 +25,7 @@
 
 <script>
 import api from 'services/api';
+import marked from 'marked';
 
 export default {
   name: 'question',
@@ -37,6 +39,11 @@ export default {
       guess: '',
       result: null,
     };
+  },
+  computed: {
+    contentHtml() {
+      return marked(this.question.content, { sanitize: true });
+    },
   },
   methods: {
     getQuestion(id) {
@@ -57,10 +64,16 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "src/assets/styles/vendor/neat/_neat.scss";
+<style lang="scss" :scoped>
+@import "~assets/styles/base/_variables";
+@import "~assets/styles/base/_mixins";
 
 .question {
-  @include outer-container;
+  @include flex-container;
+}
+
+.question__content {
+  margin: 2rem 0;
+  padding: 1rem 0;
 }
 </style>

@@ -1,20 +1,21 @@
 <template>
   <ul class="question-list">
-    <li v-for="question in questions" class="question">
-      {{ question }}
-      <router-link :to="answerQuestionPath(question)">
-        Answer Question
-      </router-link>
-    </li>
+    <question-item v-for="question in questions"
+        :question="question"
+    >
+    </question-item>
   </ul>
 </template>
 
 <script>
 import api from 'services/api';
+import QuestionItem from 'components/QuestionItem';
 
 export default {
   name: 'question-list',
-  components: {},
+  components: {
+    QuestionItem,
+  },
   created() {
     this.getQuestions();
   },
@@ -31,12 +32,17 @@ export default {
         },
       );
     },
-    answerQuestionPath(question) {
-      return `/question/${question.id}`;
-    },
   },
 };
 </script>
 
-<style>
+<style lang="scss" :scoped>
+@import "src/assets/styles/vendor/neat/_neat.scss";
+
+.question-list {
+  @include outer-container;
+  display: flex;
+  flex-direction: column;
+}
+
 </style>
