@@ -1,10 +1,4 @@
 ---
-- name: "Number of Vowels"
-  content: "# Number of Vowels\n\n### How many vowels are there in the English alphabet?"
-  description: "Prove your intelligence by showing you know how many non-consonant characters there are in English"
-  answer: "5"
-  exact_only: "false"
-  category_id: 3
 - name: "Number of Consonants"
   content: "# Number of Consonants\n\n### How many consonants are there in the English alphabet?"
   description: "Maybe you know how many vowels there are in English, but how about consonants?"
@@ -65,3 +59,15 @@
   answer: "Katharine Hepburn"
   exact_only: "false"
   category_id: 10
+- name: "The Birth of Shakespeare"
+  description: "Perhaps the most famous playwright to ever live, but do you know his birthday?"
+  content: "# The Birth of Shakespeare\n\n### What is the year of William Shakespeare's birth??"
+  answer: "1564"
+  exact_only: "false"
+  category_id: 2
+- name: "Name the Primary Colors"
+  description: "Everyone's heard of them before, but do you remember which colors are considered primary?"
+  content: "# Name the Primary Colors\n\n### What are the three primary colors?"
+  answer: "Red, Green, and Blue"
+  exact_only: "false"
+  category_id: 5

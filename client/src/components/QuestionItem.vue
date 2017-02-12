@@ -14,7 +14,7 @@
         <div class="question-item__secondary-info-box">
           <div class="question-item__category">{{ question.category.name }}</div>
         </div>
-        {{ question.description }}
+        {{ truncatedDescription }}
       </div>
       <div class="question-item__btns-box">
         <router-link class="btn btn--primary btn--sm question-item__btn" :to="'/question/' + question.id + '/edit'">
@@ -30,6 +30,7 @@
 
 <script>
 import api from 'services/api';
+import _ from 'lodash';
 
 export default {
   name: 'question-item',
@@ -51,6 +52,11 @@ export default {
           this.$emit('updateQuestions');
         },
       );
+    },
+  },
+  computed: {
+    truncatedDescription() {
+      return _.truncate(this.question.description, { length: 120 });
     },
   },
 };
@@ -132,6 +138,7 @@ $border-color-question-item: #eaeaea;
 .question-item__btns-box {
   margin: 0;
   display: flex;
+  flex-shrink: 0;
 
   .question-item__btn {
     flex: 1;
