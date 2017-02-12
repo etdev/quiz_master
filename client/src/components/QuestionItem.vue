@@ -1,7 +1,6 @@
 <template>
   <li class="question-item" v-if="question">
-    <div class="question-item__image-box">
-      <img :src="question.category.image_url">
+    <div class="question-item__image-box" :style="backgroundImageStyle(question)">
     </div>
 
     <div class="question-item__info-box">
@@ -29,6 +28,9 @@ export default {
   methods: {
     answerQuestionPath() {
       return `/question/${this.question.id}`;
+    },
+    backgroundImageStyle(question) {
+      return { 'background-image': 'url(' + question.category.image_url + ')' };
     },
   },
 };
@@ -73,24 +75,7 @@ $border-color-question-item: #eaeaea;
   height: 12rem;
   width: 100%;
   overflow: hidden;
-
-  img {
-    height: 100%;
-  }
-
-  @include media(sm) {
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
-
-  @include media(xs) {
-    img {
-      width: 100%;
-      height: auto;
-    }
-  }
+  background-size: cover;
 }
 
 .question-item__title {

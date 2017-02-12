@@ -25,6 +25,6 @@ class Question < ApplicationRecord
   end
 
   def replace_numerals_with_words(str)
-    str.gsub(/\d+/) { |num| num.to_i.to_words }
+    str.gsub(/\d+/) { |num| num.to_i.to_words.tr("-", " ") }
   end
 end

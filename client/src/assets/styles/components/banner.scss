@@ -4,15 +4,6 @@
 .banner {
   display: flex;
   height: 30rem;
-  background: #aaa;
-
-  background:
-    linear-gradient(
-      rgba(0, 0, 30, 0.45),
-      rgba(0, 0, 30, 0.45)
-    ),
-    url("/static/pexels-photo-27986.jpg");
-  background-size: cover;
 
   &__inner {
     @include outer-container;
@@ -30,7 +21,7 @@
     text-align: center;
   }
 
-  &__secondary-title {
+  &__sub-title {
     padding: 0 0 2.5rem 0;
     margin: 0;
     font-size: 1.4em;
