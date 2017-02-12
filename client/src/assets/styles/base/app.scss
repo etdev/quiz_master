@@ -14,11 +14,16 @@ strong {
   min-height: 100vh;
   color: #555;
   font-family: 'Open Sans','Lato',Helvetica,sans-serif;
-  font-weight: 400;
+  font-weight: 500;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 16px;
+
   @include media(xs) {
     font-size: 12px;
+  }
+
+  @include media(sm) {
+    font-size: 14px;
   }
 }

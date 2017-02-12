@@ -1,13 +1,48 @@
 @import "~assets/styles/base/variables";
 @import "~assets/styles/base/mixins";
 
-.footer {
-  min-height: $footer-height;
-  // background: $bg-color-footer;
-  padding: 2rem;
-  border-top: 1px solid #f0f0f0;
-}
+$bg-color-footer-top: #141518;
+$bg-color-footer-bottom: #232427;
+$footer-bottom-height: 96px;
+$footer-top-height: 18rem;
+
 
 .footer__inner {
   @include outer-container;
+}
+
+.footer__top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: $footer-top-height;
+  background:
+    linear-gradient(
+      rgba(20, 21, 24, 0.95),
+      rgba(20, 21, 24, 0.95)
+    ),
+    url("/static/pexels-photo-27986.jpg");
+  background-size: cover;
+}
+
+.footer__bottom {
+  height: $footer-bottom-height;
+  background-color: $bg-color-footer-bottom;
+}
+
+.footer__bottom-left {
+  padding-top: 1.6rem;
+  padding-left: 3rem;
+  font-size: 0.9em;
+  color: #d0d4d1;
+}
+
+.footer__row {
+  padding-bottom: 0.4rem;
+}
+
+.footer__main-icon {
+  flex: 0;
+  color: #d0d4d1;
+  font-size: 3.6rem;
 }

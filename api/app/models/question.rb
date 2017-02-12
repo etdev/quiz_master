@@ -3,6 +3,7 @@ class Question < ApplicationRecord
 
   validates :name, presence: true
   validates :content, presence: true
+  validates :description, presence: true
   validates :answer, presence: true
   validates :category, presence: true
 

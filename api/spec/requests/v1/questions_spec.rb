@@ -27,6 +27,25 @@ RSpec.describe "Questions API" do
         expect(json_data(response)["question"].keys).to include("content")
       end
 
+      it "includes question description" do
+        question = create(:question)
+
+        get v1_question_path(question)
+
+        expect(json_data(response)["question"].keys).to include("description")
+      end
+
+      it "includes associated category, with name" do
+        question = create(:question)
+
+        get v1_question_path(question)
+
+        expect(json_data(response).dig("question", "category"))
+          .to be_present
+        expect(json_data(response).dig("question", "category").keys)
+          .to include("name")
+      end
+
       it "doesn't include question answer" do
         question = create(:question)
 

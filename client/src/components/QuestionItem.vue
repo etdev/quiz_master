@@ -1,15 +1,18 @@
 <template>
   <li class="question-item" v-if="question">
     <div class="question-item__image-box">
-      <img :src="getImage()">
+      <img :src="question.category.image_url">
     </div>
 
     <div class="question-item__info-box">
       <router-link :to="answerQuestionPath()" class="question-item__title link">
         {{ question.name }}
       </router-link>
-      <div class="question-item__secondary-info-box">
-        <div class="question-item__category">{{ question.category.name }}</div>
+      <div class="question-item__description">
+        <div class="question-item__secondary-info-box">
+          <div class="question-item__category">{{ question.category.name }}</div>
+        </div>
+        {{ question.description }}
       </div>
     </div>
   </li>
@@ -26,25 +29,6 @@ export default {
   methods: {
     answerQuestionPath() {
       return `/question/${this.question.id}`;
-    },
-    getImage() {
-      const images = [
-        "laptop-ipad-organic-natural-159643.jpeg",
-        "pexels-photo-160107.jpeg",
-        "pexels-photo-257092.jpeg",
-        "pexels-photo-270557.jpeg",
-        "pexels-photo-293229.jpeg",
-        "paint-notebook-brush-pencil-159657.jpeg",
-        "pexels-photo-213769.jpeg",
-        "pexels-photo-260234.jpeg",
-        "pexels-photo-270700.jpeg",
-        "pexels-photo-126345.jpeg",
-        "pexels-photo-220325.jpeg",
-        "pexels-photo-27986.jpg",
-      ];
-
-      const randomImage = images[Math.floor(Math.random() * images.length)];
-      return "/static/" + randomImage;
     },
   },
 };
@@ -109,11 +93,38 @@ $border-color-question-item: #eaeaea;
   }
 }
 
+.question-item__title {
+  line-height: 1.4em;
+}
+
+.question-item__category {
+  border: 1px solid #e6e6e6;
+  color: #222;
+  padding: 0rem 0.4rem;
+  line-height: 1.8;
+  background: #eaeaea;
+  margin: 0;
+  display: inline-block;
+  font-size: 0.7em;
+  border-radius: 4px;
+}
+
 .question-item__info-box {
-  @include clearfix;
-  height: 12rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 21rem;
+  font-weight: 300;
+  font-size: 1.2em;
+  line-height: 1.8em;
   width: 100%;
+  color: #444;
   background: #fff;
   padding: 1rem 2rem;
+}
+
+.question-item__secondary-info-box {
+  display: inline;
+  padding-right: 0.6rem;
 }
 </style>

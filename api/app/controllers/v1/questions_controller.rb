@@ -31,7 +31,7 @@ module V1
     private
 
     def question_params
-      params.require(:question).permit(:content, :answer, :name, :category_id)
+      params.require(:question).permit(:content, :answer, :name, :category_id, :description)
     end
   end
 end

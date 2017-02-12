@@ -1,7 +1,31 @@
 ---
 - id: 1
   name: "Math"
+  image_url: "/static/categories/math.jpg"
 - id: 2
   name: "History"
+  image_url: "/static/categories/history.jpg"
 - id: 3
   name: "English"
+  image_url: "/static/categories/english.jpg"
+- id: 4
+  name: "Science"
+  image_url: "/static/categories/science.jpg"
+- id: 5
+  name: "Art"
+  image_url: "/static/categories/art.jpg"
+- id: 6
+  name: "Geography"
+  image_url: "/static/categories/geography.jpg"
+- id: 7
+  name: "Music"
+  image_url: "/static/categories/music.jpg"
+- id: 8
+  name: "Sports"
+  image_url: "/static/categories/sports.jpg"
+- id: 9
+  name: "Japanese"
+  image_url: "/static/categories/japanese.jpg"
+- id: 10
+  name: "General"
+  image_url: "/static/categories/general.jpg"

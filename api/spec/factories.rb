@@ -1,7 +1,8 @@
 FactoryGirl.define do
   factory :question do
     name { "#{Faker::Name.name} Question" }
-    content { "#{Faker::Lorem.words([5..10].sample).join(' ')}?" }
+    content { "#{Faker::Lorem.words([10..50].sample).join(' ')}?" }
+    description { "#{Faker::Lorem.words([5..10].sample).join(' ')}?" }
     category
     answer { Faker::Number.between(1, 10_000) }
   end

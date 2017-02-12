@@ -7,7 +7,9 @@ $link-activated-color: #1080d0;
 .link {
   color: $link-color;
   font-size: 1.5em;
-  font-weight: 500;
+  font-weight: 700;
+  font-family: 'Lato', 'Open Sans', Helvetica, sans-serif;
+
 
   @include activated {
     color: $link-activated-color;

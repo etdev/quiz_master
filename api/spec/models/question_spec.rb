@@ -21,6 +21,14 @@ RSpec.describe Question do
     expect(build(:question, content: "")).to be_invalid
   end
 
+  it "is invalid without a description" do
+    expect(build(:question, content: nil)).to be_invalid
+  end
+
+  it "is invalid with a blank description" do
+    expect(build(:question, content: "")).to be_invalid
+  end
+
   it "is invalid without an answer" do
     expect(build(:question, answer: nil)).to be_invalid
   end
