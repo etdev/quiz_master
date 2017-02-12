@@ -1,10 +1,7 @@
 module V1
   class QuestionsController < ApplicationController
     def index
-      @questions = Question
-        .all
-        .includes(:category)
-        .page(params[:page])
+      @questions = find_questions.page(params[:page])
 
       render json: @questions, meta: meta_data(@questions)
     end
@@ -49,6 +46,13 @@ module V1
     end
 
     private
+
+    def find_questions
+      Question
+        .all
+        .includes(:category)
+        .page(params[:page])
+    end
 
     def question_params
       params.require(:question).permit(

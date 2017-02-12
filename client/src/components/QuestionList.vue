@@ -1,25 +1,38 @@
 <template>
-  <ul class="question-list">
-    <question-item v-for="question in questions"
-        :question="question"
-        v-on:updateQuestions="getQuestions"
+  <div class="question-list-container">
+    <ul class="question-list">
+      <question-item v-for="question in questions"
+          :question="question"
+          v-on:updateQuestions="getQuestions"
+      >
+      </question-item>
+    </ul>
+
+    <pagination
+      :vm="paging"
+      v-on:setPage="setPage"
     >
-    </question-item>
-  </ul>
+    </pagination>
+
+  </div>
 </template>
 
 <script>
 import api from 'services/api';
 import QuestionItem from 'components/QuestionItem';
+import Pagination from 'components/Pagination';
+import PagingMixin from 'src/mixins/PagingMixin';
 
 export default {
   name: 'question-list',
   components: {
     QuestionItem,
+    Pagination,
   },
   created() {
     this.getQuestions();
   },
+  mixins: [PagingMixin],
   data() {
     return {
       questions: null,
@@ -27,11 +40,16 @@ export default {
   },
   methods: {
     getQuestions() {
-      api.getQuestions().then(
+      api.getQuestions(this.paging).then(
         (resp) => {
           this.questions = resp.data.questions;
+          this.paging.update(resp.data.meta);
         },
       );
+    },
+    setPage(pageNum) {
+      this.paging.setPage(pageNum);
+      this.getQuestions();
     },
   },
 };

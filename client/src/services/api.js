@@ -7,8 +7,8 @@ function getQuestion(id) {
   return axios.get(`${BASE_URL}/questions/${id}`);
 }
 
-function getQuestions() {
-  return axios.get(`${BASE_URL}/questions`);
+function getQuestions(paging = { page: 1 }) {
+  return axios.get(`${BASE_URL}/questions?page=${paging.page}`);
 }
 
 function createQuestion(question) {

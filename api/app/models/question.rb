@@ -7,10 +7,18 @@ class Question < ApplicationRecord
   validates :answer, presence: true
   validates :category, presence: true
 
+  paginates_per 12
+
   def correct_answer?(guess)
     sanitize(answer)
       .casecmp(sanitize(guess))
       .zero?
+  end
+
+  def self.by_category(category_id)
+    return self if category_id.blank?
+
+    where(category_id: category_id)
   end
 
   private

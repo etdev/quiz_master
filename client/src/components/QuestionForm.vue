@@ -97,7 +97,6 @@ export default {
     this.fetchCategories();
   },
   mounted() {
-    console.log("mounted");
     if (this.creating) {
       this.clearQuestionFields();
     } else {
@@ -128,7 +127,6 @@ export default {
           this.$router.push(`/question/${resp.data.question.id}`);
         },
         () => {
-          console.log("FAILED");
         },
       );
     },
@@ -138,7 +136,6 @@ export default {
           this.$router.push("/");
         },
         () => {
-          console.log("FAILED");
         },
       );
     },
@@ -151,7 +148,6 @@ export default {
           this.categoryOptions = resp.data.categories;
         },
         () => {
-          console.log("FAILED");
         },
       );
     },

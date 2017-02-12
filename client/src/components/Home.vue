@@ -52,7 +52,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" :scoped>
 @import "src/assets/styles/vendor/neat/_neat.scss";
 @import "~assets/styles/base/variables";
 
