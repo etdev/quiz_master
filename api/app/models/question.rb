@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
   belongs_to :category
 
-  validates :name, presence: true
+  validates :name, presence: true, uniqueness: true
   validates :content, presence: true
   validates :description, presence: true
   validates :answer, presence: true

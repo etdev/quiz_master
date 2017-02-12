@@ -47,3 +47,18 @@
 .form__label + .form__input {
   margin-left: 1rem;
 }
+
+.form__submit-btn {
+  margin-top: 2rem;
+}
+
+.form .multiselect__tags {
+  border: 1px solid #bfcbd9;
+  @include animate-default(border-color);
+  @include activated {
+    border-color: $action-color-light;
+  }
+  @include focused {
+    border-color: $border-color-mid;
+  }
+}

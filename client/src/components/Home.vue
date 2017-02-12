@@ -2,16 +2,18 @@
   <div class="home">
     <banner :background-image="mainBannerImage()">
       <h1 class="banner__main-title" slot="main-title">
-        Simple on the surface, with more under the hood.
+        The Questions we ask make us who we are.
       </h1>
       <h3 class="banner__sub-title" slot="sub-title">
-        QuizMaster helps you keep track of all the questions and answers you've been wondering about
+        QuizMaster helps you keep track of all the questions you've been wondering about.
       </h3>
       <div class="banner__btn-box" slot="btn-box">
         <router-link class="btn btn--primary banner__btn" to="/new_question">
           Ask a Question
         </router-link>
-        <a class="btn btn--default banner__btn">View Questions</a>
+        <a class="btn btn--default banner__btn" v-on:click="scrollToQuestions">
+          View Questions
+        </a>
       </div>
     </banner>
 
@@ -41,7 +43,10 @@ export default {
   },
   methods: {
     mainBannerImage() {
-      return "/static/pexels-photo-27986.jpg";
+      return "/static/main_banner.jpg";
+    },
+    scrollToQuestions() {
+      this.$el.querySelector(".panel").scrollIntoView({ behavior: "smooth" });
     },
   },
 };
