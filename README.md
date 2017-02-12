@@ -75,7 +75,7 @@ Visit `http://localhost:8080` in a browser
 
 ## Attributions
 
-* This project uses stock images from [Pexels[(https://www.pexels.com/).
+* This project uses stock images from [Pexels](https://www.pexels.com/).
 * This project uses illustrations from [Freepik](http://www.freepik.com/).
 
 ## Still Todo
