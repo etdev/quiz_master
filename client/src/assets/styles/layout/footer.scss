@@ -9,6 +9,10 @@ $footer-top-height: 18rem;
 
 .footer__inner {
   @include outer-container;
+  @include media(xs) {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .footer__top {
@@ -23,11 +27,20 @@ $footer-top-height: 18rem;
     ),
     url("/static/pexels-photo-27986.jpg");
   background-size: cover;
+
+  @include media(xs) {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .footer__bottom {
   height: $footer-bottom-height;
   background-color: $bg-color-footer-bottom;
+  @include media(xs) {
+    padding: 0;
+    margin: 0;
+  }
 }
 
 .footer__bottom-left {
@@ -35,6 +48,11 @@ $footer-top-height: 18rem;
   padding-left: 3rem;
   font-size: 0.9em;
   color: #d0d4d1;
+  @include media(xs) {
+    padding: 0;
+    margin: 0;
+  }
+
 }
 
 .footer__row {
@@ -45,4 +63,9 @@ $footer-top-height: 18rem;
   flex: 0;
   color: #d0d4d1;
   font-size: 3.6rem;
+
+  @include media(xs) {
+    padding: 0;
+    margin: 0;
+  }
 }

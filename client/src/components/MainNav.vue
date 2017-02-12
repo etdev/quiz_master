@@ -38,6 +38,7 @@ export default {
   flex-grow: 1;
 
   @include media(xs) {
+    flex-direction: column;
     min-height: $main-nav-height;
     padding: 0 0.5rem;
   }
@@ -49,6 +50,13 @@ export default {
   font-size: 1.6rem;
   font-weight: bold;
   padding: 1.6rem 0;
+
+  @include media(xs) {
+    display: flex;
+    @include clearfix;
+    padding: 0;
+    min-height: 60px;
+  }
 }
 
 .main-nav__app-logo-icon {
@@ -60,6 +68,9 @@ export default {
 
   @include media(xs) {
     font-size: 1em;
+    display: inline-block;
+    margin-top: -5px;
+    margin-left: 10px;
   }
 }
 
@@ -72,12 +83,24 @@ export default {
   @include animate-default(color);
 
   @include media(xs) {
+    margin: 0 auto;
     font-size: 0.8em;
+    display: inline-block;
+    line-height: 60px;
+    height: 60px;
   }
 }
 
 .main-nav__link-list {
   display: flex;
+
+  @include media(xs) {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    height: 40px;
+    line-height: 40px;
+  }
 }
 
 .main-nav__link-list-item {
@@ -85,6 +108,12 @@ export default {
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
+
+  @include media(xs) {
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+  }
 }
 
 .main-nav__link-list-link {
