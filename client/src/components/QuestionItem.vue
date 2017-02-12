@@ -2,6 +2,8 @@
 
   <li class="question-item" v-if="question">
     <div class="question-item__image-box" :style="backgroundImageStyle(question)">
+      <router-link :to="answerQuestionPath()" class="question-item__block-link">
+      </router-link>
     </div>
 
     <div class="question-item__info-box">
@@ -142,5 +144,11 @@ $border-color-question-item: #eaeaea;
       margin-left: 1rem;
     }
   }
+}
+
+.question-item__block-link {
+  display: block;
+  height: 100%;
+  width: 100%;
 }
 </style>

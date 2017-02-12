@@ -11,10 +11,17 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @include media(xs) {
+    flex-direction: column;
+  }
 }
 
 .form__label {
   flex: 1 0;
+  @include media(xs) {
+    padding-bottom: 1em;
+  }
 }
 
 .form__text-input {
@@ -50,10 +57,14 @@
 
 .form__submit-btn {
   margin-top: 2rem;
+  min-width: 11rem;
+
+  @include media(xs) {
+    width: 10rem;
+  }
 }
 
 .form .multiselect__tags {
-  border: 1px solid #bfcbd9;
   @include animate-default(border-color);
   @include activated {
     border-color: $action-color-light;

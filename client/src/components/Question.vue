@@ -10,16 +10,14 @@
     </banner>
 
     <div class="question__result-box question__result-box--correct" v-if="answerIsCorrect">
-      <h1 class="question__box-main-title">Congratulations!! That is correct.</h1>
-      <div class="question__btn-box">
+      <div class="question__btn-box--correct">
         <a class="btn btn--primary" v-on:click="backToQuestions">Back to Question List</a>
         <a class="btn btn--default" v-on:click="clearResultBox">Clear</a>
       </div>
     </div>
 
     <div class="question__result-box question__result-box--incorrect" v-if="result && !answerIsCorrect">
-      <h1 class="question__box-main-title">Sorry, that is incorrect.</h1>
-      <div class="question__btn-box">
+      <div class="question__btn-box--incorrect">
         <a class="btn btn--primary" v-on:click="backToQuestions">Back to Question List</a>
         <a class="btn btn--default" v-on:click="clearResultBox">Try Again</a>
       </div>
@@ -114,16 +112,29 @@ export default {
   @include outer-container;
 }
 
-.question_content {
+.question__content {
   padding: 1rem 0;
+
+  @include media(xs) {
+    padding: 0 1rem;
+  }
 }
 
 .question__guess-box {
   padding: 1rem 0 4rem 0;
+
+  @include media(xs) {
+    padding: 1rem 1rem 4rem;
+  }
 }
 
 .question__result-box {
   padding: 1rem 0 4rem 0;
+
+  @include media(xs) {
+    padding: 0 1rem;
+    font-size: 1em;
+  }
 }
 
 .question__result-box {
@@ -132,17 +143,20 @@ export default {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 20rem;
+  min-height: 32rem;
   margin-bottom: 4rem;
   margin-top: 4rem;
   border-radius: 4px;
 
   &--correct {
-    background: $success-color;
+    background: url('/static/vectors/correct.png');
+    background-size: cover;
+    max-width: 100%;
   }
 
   &--incorrect {
-    background: $failure-color;
+    background: url('/static/vectors/incorrect.png');
+    background-size: cover;
   }
 }
 
@@ -153,6 +167,19 @@ export default {
 }
 
 .question__btn-box {
-  margin-top: 1rem;
+  margin-top: 14rem;
+  display: relative;
+
+  &--incorrect {
+    position: relative;
+    left: -20rem;
+    top: 4rem;
+
+    @include media(xs) {
+      left: 0;
+      top: 0;
+    }
+  }
+
 }
 </style>

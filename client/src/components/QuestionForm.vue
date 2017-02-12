@@ -97,7 +97,10 @@ export default {
     this.fetchCategories();
   },
   mounted() {
-    if (!this.creating) {
+    console.log("mounted");
+    if (this.creating) {
+      this.clearQuestionFields();
+    } else {
       this.id = this.$route.params.id;
       this.getQuestion(this.id);
     }
@@ -168,6 +171,15 @@ export default {
         },
       );
     },
+    clearQuestionFields() {
+      this.name = null;
+      this.content = '# hello';
+      this.answer = null;
+      this.description = '';
+      this.category_id = null;
+      this.image_url = null;
+      this.selectedCategory = null;
+    },
   },
   computed: {
     question() {
@@ -213,6 +225,8 @@ export default {
 .question__basic-info {
   border-bottom: 1px solid #e8e8e8;
   padding: 1rem 0 2.5rem;
+  display: flex;
+  flex-direction: column;
 }
 
 </style>

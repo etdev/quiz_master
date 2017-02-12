@@ -1,5 +1,6 @@
 @import "~assets/styles/base/variables";
 @import "~assets/styles/base/mixins";
+@import "~assets/styles/vendor/neat/neat";
 
 $bg-color-footer-top: #141518;
 $bg-color-footer-bottom: #232427;
@@ -28,15 +29,19 @@ $footer-top-height: 18rem;
     url("/static/pexels-photo-27986.jpg");
   background-size: cover;
 
-  @include media(xs) {
-    padding: 0;
-    margin: 0;
+  @include media(xxs) {
+    text-align: center;
+    display: inline-block;
+    width: 100%;
+    height: $footer-top-height;
+    line-height: $footer-top-height;
   }
 }
 
 .footer__bottom {
   height: $footer-bottom-height;
   background-color: $bg-color-footer-bottom;
+
   @include media(xs) {
     padding: 0;
     margin: 0;
@@ -48,9 +53,9 @@ $footer-top-height: 18rem;
   padding-left: 3rem;
   font-size: 0.9em;
   color: #d0d4d1;
+
   @include media(xs) {
-    padding: 0;
-    margin: 0;
+    padding: 1.6em;
   }
 
 }
@@ -64,8 +69,8 @@ $footer-top-height: 18rem;
   color: #d0d4d1;
   font-size: 3.6rem;
 
-  @include media(xs) {
-    padding: 0;
-    margin: 0;
+  @include media(xxs) {
+    display: hidden;
+    margin: 0 auto;
   }
 }

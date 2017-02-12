@@ -24,6 +24,9 @@
 }
 
 @mixin media($point) {
+  @if ($point == xxs) {
+    @media (max-width: 320px) { @content }
+  }
   @if ($point == xs) {
     @media (max-width: 767px) { @content }
   }

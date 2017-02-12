@@ -67,10 +67,12 @@ export default {
   color: $text-color-mid-gray;
 
   @include media(xs) {
-    font-size: 1em;
-    display: inline-block;
-    margin-top: -5px;
-    margin-left: 10px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.2em;
+    position: absolute;
+    left: 0;
+    padding-left: 1rem;
   }
 }
 
@@ -83,11 +85,10 @@ export default {
   @include animate-default(color);
 
   @include media(xs) {
-    margin: 0 auto;
-    font-size: 0.8em;
-    display: inline-block;
+    font-size: 1em;
     line-height: 60px;
     height: 60px;
+    margin: 0 auto;
   }
 }
 
@@ -95,11 +96,7 @@ export default {
   display: flex;
 
   @include media(xs) {
-    display: block;
-    margin: 0 auto;
-    padding: 0;
-    height: 40px;
-    line-height: 40px;
+    display: none;
   }
 }
 
