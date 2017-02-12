@@ -2,6 +2,9 @@
   <footer class="footer footer--main">
     <div class="footer footer__top">
       <i class="fa fa-mortar-board footer__main-icon"></i>
+      <div class="footer__main-text">
+        QuizMaster
+      </div>
     </div>
     <div class="footer footer__bottom">
       <div class="footer__bottom-left">

@@ -58,6 +58,7 @@
 .form__submit-btn {
   margin-top: 2rem;
   min-width: 11rem;
+  text-align: center;
 
   @include media(xs) {
     width: 10rem;

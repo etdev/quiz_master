@@ -129,34 +129,40 @@ export default {
 }
 
 .question__result-box {
-  padding: 1rem 0 4rem 0;
-
-  @include media(xs) {
-    padding: 0 1rem;
-    font-size: 1em;
-  }
-}
-
-.question__result-box {
   display: flex;
   flex: 1;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 32rem;
-  margin-bottom: 4rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
   border-radius: 4px;
+  min-height: 32rem;
+  background-size: cover;
+
+  @include media(xs) {
+    min-height: 12rem;
+  }
 
   &--correct {
     background: url('/static/vectors/correct.png');
     background-size: cover;
-    max-width: 100%;
+
+    @include media(xs) {
+      margin: 2rem 1rem;
+    }
   }
 
   &--incorrect {
     background: url('/static/vectors/incorrect.png');
     background-size: cover;
+
+    @include media(xs) {
+      margin: 2rem 1rem;
+    }
+
+    @include media(xxs) {
+      margin: 2rem 1rem;
+    }
   }
 }
 
@@ -179,6 +185,15 @@ export default {
       left: 0;
       top: 0;
     }
+
+    @include media(xxs) {
+      text-align: center;
+    }
+  }
+
+  &--correct {
+    position: relative;
+    margin-top: 5rem;
   }
 
 }

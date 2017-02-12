@@ -70,16 +70,12 @@ $border-color-question-item: #eaeaea;
   margin-bottom: 1.6rem;
 
   @include span-columns(4);
-  &:nth-of-type(3n) {
-    @include omega;
-  }
+  @include omega(3n);
 
   @include media(sm) {
     @include span-columns(6);
-    &:nth-of-type(2n) {
-      @include omega;
-    }
-
+    @include omega-reset(3n);
+    @include omega(2n);
   }
 
   @include media(xs) {

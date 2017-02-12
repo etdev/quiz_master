@@ -74,7 +74,7 @@ $min-editor-height-xs: 30rem;
 
 .markdown-editor__preview {
   flex: 1;
-  border: 1px solid #f8f8f8;
+  border: 1px solid #f6f6f6;
   padding: 1.5rem;
   min-height: $min-editor-height;
 
@@ -103,6 +103,8 @@ $min-editor-height-xs: 30rem;
   background-color: #f6f6f6;
   font-family: 'Monaco', courier, monospace;
   overflow: visible;
+  background: #f8f8f8;
+  border-left: 6px solid $action-color;
 
   @include media(xs) {
     min-height: $min-editor-height-xs;

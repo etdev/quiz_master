@@ -105,6 +105,10 @@ export default {
       this.getQuestion(this.id);
     }
   },
+  beforeRouteLeave(route, redirect, next) {
+    this.clearQuestionFields();
+    next();
+  },
   data() {
     return {
       content: '# hello',
@@ -201,6 +205,7 @@ export default {
 
 <style lang="scss">
 @import "src/assets/styles/base/mixins";
+@import "src/assets/styles/base/variables";
 
 .question-form {
   flex: 1;
@@ -215,7 +220,7 @@ export default {
 }
 
 .markdown-editor-container {
-  margin-top: 2rem;
+  margin-top: 0;
 }
 
 .question-form__main-title {
@@ -223,10 +228,13 @@ export default {
 }
 
 .question__basic-info {
-  border-bottom: 1px solid #e8e8e8;
   padding: 1rem 0 2.5rem;
   display: flex;
   flex-direction: column;
+  background: #f8f8f8;
+  padding: 1.4rem;
+  color: #555;
+  border-left: 6px solid $action-color;
 }
 
 </style>

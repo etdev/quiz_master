@@ -18,6 +18,7 @@ $footer-top-height: 18rem;
 
 .footer__top {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: $footer-top-height;
@@ -25,8 +26,7 @@ $footer-top-height: 18rem;
     linear-gradient(
       rgba(20, 21, 24, 0.95),
       rgba(20, 21, 24, 0.95)
-    ),
-    url("/static/pexels-photo-27986.jpg");
+    );
   background-size: cover;
 
   @include media(xxs) {
@@ -71,6 +71,17 @@ $footer-top-height: 18rem;
 
   @include media(xxs) {
     display: hidden;
+    margin: 0 auto;
+  }
+}
+
+.footer__main-text {
+  flex: 0;
+  color: #d0d4d1;
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+
+  @include media(xxs) {
     margin: 0 auto;
   }
 }

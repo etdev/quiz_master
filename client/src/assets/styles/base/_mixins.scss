@@ -50,10 +50,19 @@
   width: 1200px;
   flex: 0 0 auto;
 
-  @include media(xs) {
+  @include media(md) {
     padding: 0 1em;
     width: 100%;
     margin: 0;
   }
+}
+
+// ------------------------------------------------------------
+// Omega Reset
+// ------------------------------------------------------------
+
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
 }
 
