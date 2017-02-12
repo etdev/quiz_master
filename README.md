@@ -77,3 +77,8 @@ Visit `http://localhost:8080` in a browser
 
 * This project uses stock images from [Pexels[(https://www.pexels.com/).
 * This project uses illustrations from [Freepik](http://www.freepik.com/).
+
+## Still Todo
+
+* Increase test coverage, particularly on the front-end
+* Fix up SASS file organization and imports
