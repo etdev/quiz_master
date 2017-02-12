@@ -11,8 +11,16 @@ function getQuestions() {
   return axios.get(`${BASE_URL}/questions`);
 }
 
-function postQuestion(question) {
+function createQuestion(question) {
   return axios.post(`${BASE_URL}/questions`, question);
+}
+
+function updateQuestion(question) {
+  return axios.put(`${BASE_URL}/questions/${question.id}`, question);
+}
+
+function deleteQuestion(question) {
+  return axios.delete(`${BASE_URL}/questions/${question.id}`);
 }
 
 // answer checking
@@ -28,7 +36,9 @@ function getCategories() {
 export default {
   getQuestion,
   getQuestions,
-  postQuestion,
+  createQuestion,
+  updateQuestion,
   checkAnswer,
   getCategories,
+  deleteQuestion,
 };

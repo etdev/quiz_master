@@ -28,10 +28,36 @@ module V1
       end
     end
 
+    def update
+      @question = Question.find(params[:id])
+      if @question.update(question_params)
+        render json: @question,
+               serializer: QuestionWithAnswerSerializer,
+               root: :question
+      else
+        render default_error(["Question does not exist"], :not_found)
+      end
+    end
+
+    def destroy
+      @question = Question.find(params[:id])
+      if @question.destroy
+        render json: { result: "success" }
+      else
+        render default_error(["Question does not exist"], :not_found)
+      end
+    end
+
     private
 
     def question_params
-      params.require(:question).permit(:content, :answer, :name, :category_id, :description)
+      params.require(:question).permit(
+        :content,
+        :answer,
+        :name,
+        :category_id,
+        :description
+      )
     end
   end
 end

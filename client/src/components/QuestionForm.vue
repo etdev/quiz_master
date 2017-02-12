@@ -1,11 +1,17 @@
 <template>
-  <div class="question-form">
-    <banner :backgroundImage="newQuestionBackgroundImage()">
-      <h1 class="banner__main-title" slot="main-title">
+  <div class="question-form" v-if="categoryOptions">
+    <banner :backgroundImage="backgroundImage()">
+      <h1 class="banner__main-title" slot="main-title" v-if="creating">
         Adding a Question to the Archives
       </h1>
-      <h3 class="banner__sub-title" slot="sub-title">
+      <h1 class="banner__main-title" slot="main-title" v-else>
+        Nothing is perfect the first time.
+      </h1>
+      <h3 class="banner__sub-title" slot="sub-title" v-if="creating">
         We appreciate your contribution.  Please enter your data below.
+      </h3>
+      <h3 class="banner__sub-title" slot="sub-title" v-else>
+        Thanks for taking the time to refine this question.
       </h3>
     </banner>
     <div class="question-form__inner">
@@ -60,8 +66,11 @@
         </div>
 
         <div class="form__row">
-          <a class="btn form__submit-btn" v-on:click="postQuestion">
+          <a class="btn form__submit-btn" v-on:click="createQuestion" v-if="creating">
             Submit Question
+          </a>
+          <a class="btn form__submit-btn" v-on:click="updateQuestion" v-else>
+            Update Question
           </a>
         </div>
       </form>
@@ -87,20 +96,39 @@ export default {
   created() {
     this.fetchCategories();
   },
+  mounted() {
+    if (!this.creating) {
+      this.id = this.$route.params.id;
+      this.getQuestion(this.id);
+    }
+  },
   data() {
     return {
       content: '# hello',
       answer: '',
       name: '',
+      category_id: null,
+      image_url: '',
+      description: '',
       selectedCategory: {},
-      categoryOptions: [],
+      categoryOptions: null,
     };
   },
   methods: {
-    postQuestion() {
-      api.postQuestion(this.question).then(
+    createQuestion() {
+      api.createQuestion(this.question).then(
         (resp) => {
           this.$router.push(`/question/${resp.data.question.id}`);
+        },
+        () => {
+          console.log("FAILED");
+        },
+      );
+    },
+    updateQuestion() {
+      api.updateQuestion(this.question).then(
+        () => {
+          this.$router.push("/");
         },
         () => {
           console.log("FAILED");
@@ -120,18 +148,40 @@ export default {
         },
       );
     },
-    newQuestionBackgroundImage() {
-      return "/static/categories/new_question.jpg";
+    backgroundImage() {
+      if (this.creating) {
+        return "/static/categories/new_question.jpg";
+      }
+      return this.image_url;
+    },
+    getQuestion(id) {
+      api.getQuestion(id).then(
+        (resp) => {
+          const question = resp.data.question;
+          this.name = question.name;
+          this.content = question.content;
+          this.answer = question.answer;
+          this.description = question.description;
+          this.category_id = question.category.id;
+          this.image_url = question.category.image_url;
+          this.selectedCategory = this.categoryOptions.find(cat => cat.id === question.category.id);
+        },
+      );
     },
   },
   computed: {
     question() {
       return {
+        id: this.id,
         content: this.content,
         answer: this.answer,
         name: this.name,
         category_id: this.selectedCategory.id,
+        description: this.description,
       };
+    },
+    creating() {
+      return this.$route.name === 'newQuestion';
     },
   },
 };

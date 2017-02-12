@@ -10,6 +10,9 @@
   display: inline-block;
 
   @include animate-default(background-color);
+  @include animate-default(color);
+  @include animate-default(border-color);
+
   @include activated {
     background: darken($text-color-mid-gray, 4%);
   }
@@ -20,6 +23,34 @@
 
     @include activated {
       background: darken(#fff, 10%);
+    }
+  }
+
+  &--danger {
+    background: $failure-color;
+    color: #fff;
+
+    @include activated {
+      background: darken($failure-color, 10%);
+    }
+  }
+
+  &--sm {
+    padding: 4px 8px;
+  }
+
+  &--default--danger {
+    color: $text-color-mid-gray;
+    background: #fff;
+    border: 1px solid #aaa;
+
+    @include animate-default(background-color);
+    @include animate-default(color);
+    @include animate-default(border-color);
+    @include activated {
+      color: $failure-color;
+      background-color: #fff;
+      border-color: $failure-color;
     }
   }
 }

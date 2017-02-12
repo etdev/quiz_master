@@ -2,6 +2,7 @@
   <ul class="question-list">
     <question-item v-for="question in questions"
         :question="question"
+        v-on:updateQuestions="getQuestions"
     >
     </question-item>
   </ul>

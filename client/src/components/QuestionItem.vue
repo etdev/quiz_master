@@ -1,4 +1,5 @@
 <template>
+
   <li class="question-item" v-if="question">
     <div class="question-item__image-box" :style="backgroundImageStyle(question)">
     </div>
@@ -13,11 +14,21 @@
         </div>
         {{ question.description }}
       </div>
+      <div class="question-item__btns-box">
+        <router-link class="btn btn--primary btn--sm question-item__btn" :to="'/question/' + question.id + '/edit'">
+          Edit
+        </router-link>
+        <a class="btn btn--default--danger btn--sm question-item__btn" v-on:click="deleteQuestion">
+          Delete
+        </a>
+      </div>
     </div>
   </li>
 </template>
 
 <script>
+import api from 'services/api';
+
 export default {
   name: 'question-item',
   props: ['question'],
@@ -31,6 +42,13 @@ export default {
     },
     backgroundImageStyle(question) {
       return { 'background-image': 'url(' + question.category.image_url + ')' };
+    },
+    deleteQuestion() {
+      api.deleteQuestion(this.question).then(
+        () => {
+          this.$emit('updateQuestions');
+        },
+      );
     },
   },
 };
@@ -49,8 +67,8 @@ $border-color-question-item: #eaeaea;
   overflow: hidden;
   margin-bottom: 1.6rem;
 
-  @include span-columns(3);
-  &:nth-of-type(4n) {
+  @include span-columns(4);
+  &:nth-of-type(3n) {
     @include omega;
   }
 
@@ -111,5 +129,18 @@ $border-color-question-item: #eaeaea;
 .question-item__secondary-info-box {
   display: inline;
   padding-right: 0.6rem;
+}
+
+.question-item__btns-box {
+  margin: 0;
+  display: flex;
+
+  .question-item__btn {
+    flex: 1;
+    text-align: center;
+    &:last-of-type {
+      margin-left: 1rem;
+    }
+  }
 }
 </style>

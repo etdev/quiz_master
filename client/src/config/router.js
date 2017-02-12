@@ -1,6 +1,6 @@
 import VueRouter from 'vue-router';
 import Home from 'components/Home';
-import NewQuestionForm from 'components/NewQuestionForm';
+import QuestionForm from 'components/QuestionForm';
 import Question from 'components/Question';
 
 export default new VueRouter({
@@ -11,12 +11,18 @@ export default new VueRouter({
       component: Home,
     },
     {
+      name: 'newQuestion',
       path: '/new_question',
-      component: NewQuestionForm,
+      component: QuestionForm,
     },
     {
       path: '/question/:id',
       component: Question,
+    },
+    {
+      name: 'editQuestion',
+      path: '/question/:id/edit',
+      component: QuestionForm,
     },
   ],
 });

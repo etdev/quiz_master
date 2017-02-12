@@ -87,7 +87,7 @@ RSpec.describe "Questions API" do
       it "returns success status" do
         question = build(:question)
 
-        post v1_questions_path, question: question.attributes
+        post v1_questions_path, params: { question: question.attributes }
 
         expect(response).to be_success
       end
@@ -95,7 +95,7 @@ RSpec.describe "Questions API" do
       it "returns created question" do
         question = build(:question)
 
-        post v1_questions_path, question: question.attributes
+        post v1_questions_path, params: { question: question.attributes }
 
         expect(json_data(response)["question"]).to be_present
       end
@@ -103,7 +103,7 @@ RSpec.describe "Questions API" do
       it "increases number of questions by one" do
         question = build(:question)
 
-        post v1_questions_path, question: question.attributes
+        post v1_questions_path, params: { question: question.attributes }
 
         expect(Question.count).to eq(1)
       end
@@ -113,7 +113,7 @@ RSpec.describe "Questions API" do
       it "returns unprocessable_entity status when content is empty" do
         question = build(:question, content: "")
 
-        post v1_questions_path, question: question.attributes
+        post v1_questions_path, params: { question: question.attributes }
 
         expect(response).to have_http_status(:unprocessable_entity)
       end
@@ -121,9 +121,110 @@ RSpec.describe "Questions API" do
       it "returns unprocessable_entity status when answer is empty" do
         question = build(:question, answer: "")
 
-        post v1_questions_path, question: question.attributes
+        post v1_questions_path, params: { question: question.attributes }
 
         expect(response).to have_http_status(:unprocessable_entity)
+      end
+    end
+  end
+
+  describe "PUT #update" do
+    context "with valid question data" do
+      it "returns success status" do
+        question = create(:question)
+
+        put v1_question_path(question), params: { question: question.attributes }
+
+        expect(response).to be_success
+      end
+
+      it "returns updated question" do
+        question = create(:question)
+
+        put v1_question_path(question), params: { question: question.attributes }
+
+        expect(json_data(response)["question"]).to be_present
+      end
+
+      it "doesn't increase number of questions" do
+        question = create(:question)
+
+        put v1_question_path(question), params: { question: question.attributes }
+
+        expect(Question.count).to eq(1)
+      end
+
+      it "successfully changes name" do
+        question = create(:question, name: "Old name")
+
+        edited_question = question
+        edited_question.name = "New name"
+
+        put v1_question_path(question), params: { question: edited_question.attributes }
+
+        expect(json_data(response)["question"]).to be_present
+        expect(json_data(response)["question"]["name"]).to eq("New name")
+      end
+
+      it "successfully changes description" do
+        question = create(:question, description: "Old description")
+
+        edited_question = question
+        edited_question.description = "New description"
+
+        put v1_question_path(question), params: { question: edited_question.attributes }
+
+        expect(json_data(response)["question"]).to be_present
+        expect(json_data(response)["question"]["description"])
+          .to eq("New description")
+      end
+
+      it "successfully changes content" do
+        question = create(:question, content: "# Old content")
+
+        edited_question = question
+        edited_question.content = "# New content"
+
+        put v1_question_path(question), params: { question: edited_question.attributes }
+
+        expect(json_data(response)["question"]).to be_present
+        expect(json_data(response)["question"]["content"])
+          .to eq("# New content")
+      end
+
+      it "successfully changes answer" do
+        question = create(:question, answer: "Old answer")
+
+        edited_question = question
+        edited_question.answer = "New answer"
+
+        put v1_question_path(question), params: { question: edited_question.attributes }
+
+        expect(json_data(response)["question"]).to be_present
+        expect(json_data(response)["question"]["answer"])
+          .to eq("New answer")
+      end
+    end
+  end
+
+  describe "DELETE #destroy" do
+    context "with valid id" do
+      it "returns success status" do
+        question = create(:question)
+
+        delete v1_question_path(question)
+
+        expect(response).to be_success
+      end
+
+      it "successfully delets specified question" do
+        question = create(:question)
+
+        delete v1_question_path(question)
+
+        expect(response).to be_success
+        expect(json_data(response)["result"]).to eq("success")
+        expect(Question.count).to eq(0)
       end
     end
   end
