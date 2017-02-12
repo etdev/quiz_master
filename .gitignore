@@ -1,13 +1,13 @@
 *.rbc
 capybara-*.html
-.rspec
-/log
+/api/.rspec
+/api/log
 /tmp
-/db/*.sqlite3
-/db/*.sqlite3-journal
-/public/system
-/coverage/
-/spec/tmp
+/api/db/*.sqlite3
+/api/db/*.sqlite3-journal
+/api/public/system
+/api/coverage/
+/api/spec/tmp
 **.orig
 rerun.txt
 pickle-email-*.html
@@ -24,8 +24,8 @@ config/secrets.yml
 .env
 
 ## Environment normalization:
-/.bundle
-/vendor/bundle
+/api/.bundle
+/api/vendor/bundle
 
 # these should all be checked in to normalize the environment:
 # Gemfile.lock, .ruby-version, .ruby-gemset
