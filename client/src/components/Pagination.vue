@@ -33,7 +33,7 @@ export default {
 
       return [page - 2, page - 1, page, page + 1, page + 2]
         .filter(p => p > 0)
-        .filter(p => ((p - 1) * this.vm.perPage) <= this.vm.totalCount);
+        .filter(p => ((p - 1) * this.vm.perPage) < this.vm.totalCount);
     },
     isActive(p) {
       return p === this.vm.page;

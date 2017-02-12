@@ -1,9 +1,13 @@
+import QuestionList from 'components/QuestionList';
+
 describe('QuestionList.vue', () => {
-  it('should have created hook', () => { });
-  it('should have Paging Mixin', () => { });
-  it('should have questions object', () => { });
-  it('should include api component', () => { });
-  it('should include QuestionItem component', () => { });
-  it('should include Pagination component', () => { });
-  it('should have getQuestions function', () => { });
+  it('has a created hook', () => {
+    expect(typeof QuestionList.created).to.equal('function');
+  });
+  it('includes a QuestionItem component', () => {
+    expect(QuestionList.components).to.include.keys('QuestionItem');
+  });
+  it('has a getQuestions function', () => {
+    expect(QuestionList.methods).to.include.keys('getQuestions');
+  });
 });

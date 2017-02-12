@@ -1,6 +1,7 @@
-// import Vue from 'vue';
-// import MarkdownEditor from 'src/components/MarkdownEditor';
+import MarkdownEditor from 'src/components/MarkdownEditor';
 
-// describe('MarkdownEditor', () => {
-//   expect(1).to.eq(1);
-// });
+describe('MarkdownEditor.vue', () => {
+  it('sets the correct default data', () => {
+    expect(typeof MarkdownEditor.data).to.equal('function');
+  });
+});

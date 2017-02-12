@@ -64,16 +64,14 @@ Install project dependencies
 yarn install
 ```
 
+In `/client/config/dev.env.js` set the value of `QUIZ_MASTER_API_HOST` to your local API
+
 Start dev server
 ```bash
 yarn run dev
 ```
 
 Visit `http://localhost:8080` in a browser
-
-## Config
-
-* `/client/config/dev.env.js` - set the  local API host as `QUIZ_MASTER_API_HOST`
 
 ## Attributions
 
