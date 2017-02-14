@@ -14,6 +14,10 @@
         Thanks for taking the time to refine this question.
       </h3>
     </banner>
+
+    <flash :flash="flash">
+    </flash>
+
     <div class="question-form__inner">
 
       <h1 class="question-form__main-title">Question Info</h1>
@@ -84,6 +88,8 @@ import MarkdownEditor from 'components/MarkdownEditor';
 import MarkdownHelper from 'components/MarkdownHelper';
 import Multiselect from 'vue-multiselect';
 import Banner from 'components/Banner';
+import Flash from 'components/Flash';
+import FlashMixin from 'src/mixins/FlashMixin';
 
 export default {
   name: 'question-list',
@@ -92,7 +98,9 @@ export default {
     MarkdownHelper,
     Multiselect,
     Banner,
+    Flash,
   },
+  mixins: [FlashMixin],
   created() {
     this.fetchCategories();
   },
@@ -110,6 +118,7 @@ export default {
   },
   data() {
     return {
+      flash: this.generateBlankFlash(),
       content: '# hello',
       answer: '',
       name: '',
@@ -127,6 +136,8 @@ export default {
           this.$router.push(`/question/${resp.data.question.id}`);
         },
         () => {
+          this.flash.show('Failed to create question', 'failure');
+          this.scrollToTop();
         },
       );
     },
@@ -136,6 +147,8 @@ export default {
           this.$router.push("/");
         },
         () => {
+          this.flash.show('Failed to update question', 'failure');
+          this.scrollToTop();
         },
       );
     },
@@ -148,6 +161,8 @@ export default {
           this.categoryOptions = resp.data.categories;
         },
         () => {
+          this.flash.show('Failed to fetch categories', 'failure');
+          this.scrollToTop();
         },
       );
     },
@@ -180,15 +195,20 @@ export default {
       this.image_url = null;
       this.selectedCategory = null;
     },
+    scrollToTop() {
+      this.$el.scrollIntoView({ behavior: "smooth" });
+    },
   },
   computed: {
     question() {
+      const categoryId = this.selectedCategory ? this.selectedCategory.id : null;
+
       return {
         id: this.id,
         content: this.content,
         answer: this.answer,
         name: this.name,
-        category_id: this.selectedCategory.id,
+        category_id: categoryId,
         description: this.description,
       };
     },

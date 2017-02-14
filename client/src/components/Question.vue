@@ -9,6 +9,9 @@
       </h3>
     </banner>
 
+    <flash :flash="flash">
+    </flash>
+
     <div class="question__result-box question__result-box--correct" v-if="answerIsCorrect">
       <div class="question__btn-box--correct">
         <a class="btn btn--primary" v-on:click="backToQuestions">Back to Question List</a>
@@ -31,7 +34,7 @@
     <section class="question__guess-box">
       <form class="form" v-on:submit.prevent>
         <div class="form__row">
-          <input type="text" name="guess" v-model="guess" class="form__text-input" v-on:keyup.enter="checkAnswer">
+          <input type="text" name="guess" v-model="guess" class="form__text-input" id="answer-input" v-on:keyup.enter="checkAnswer">
         </div>
         <div class="form__row">
           <a class="btn form__submit-btn" v-on:click="checkAnswer">
@@ -48,17 +51,23 @@
 import api from 'services/api';
 import marked from 'marked';
 import Banner from 'components/Banner';
+import Flash from 'components/Flash';
+import FlashMixin from 'src/mixins/FlashMixin';
+import Vue from 'vue';
 
 export default {
   name: 'question',
   components: {
     Banner,
+    Flash,
   },
+  mixins: [FlashMixin],
   created() {
     this.getQuestion(this.$route.params.id);
   },
   data() {
     return {
+      flash: this.generateBlankFlash(),
       question: null,
       guess: '',
       result: null,
@@ -78,20 +87,42 @@ export default {
         (resp) => {
           this.question = resp.data.question;
         },
+        () => {
+          this.flash.show('Failed to fetch question');
+          this.scrollToTop();
+        },
       );
     },
     checkAnswer() {
       api.checkAnswer(this.question, this.guess).then(
         (resp) => {
           this.result = resp.data.result;
+          this.scrollToResult();
+        },
+        () => {
+          this.flash.show('Failed to check answer');
+          this.scrollToTop();
         },
       );
     },
     clearResultBox() {
       this.result = null;
+      this.scrollToTop();
+      this.focusAnswerInput();
     },
     backToQuestions() {
       this.$router.push('/');
+    },
+    scrollToTop() {
+      this.$el.scrollIntoView({ behavior: "smooth" });
+    },
+    scrollToResult() {
+      Vue.nextTick(() => {
+        this.$el.querySelector(".question__result-box").scrollIntoView({ behavior: "smooth" });
+      });
+    },
+    focusAnswerInput() {
+      this.$el.querySelector("#answer-input").focus();
     },
   },
 };

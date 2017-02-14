@@ -44,9 +44,6 @@
     background: #fff;
     border: 1px solid #aaa;
 
-    @include animate-default(background-color);
-    @include animate-default(color);
-    @include animate-default(border-color);
     @include activated {
       color: $failure-color;
       background-color: #fff;

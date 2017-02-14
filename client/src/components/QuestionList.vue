@@ -1,12 +1,16 @@
 <template>
   <div class="question-list-container">
-    <ul class="question-list">
+    <ul class="question-list" v-if="questions">
       <question-item v-for="question in questions"
           :question="question"
           v-on:updateQuestions="getQuestions"
       >
       </question-item>
     </ul>
+
+    <div v-if="hasNoQuestions" class="has-no-questions-box">
+      Sorry, there are currently no questions available. But please Feel free to add your own!
+    </div>
 
     <pagination
       :vm="paging"
@@ -52,6 +56,11 @@ export default {
       this.getQuestions();
     },
   },
+  computed: {
+    hasNoQuestions() {
+      return this.questions && this.questions.length === 0;
+    },
+  },
 };
 </script>
 
@@ -63,6 +72,10 @@ export default {
 .question-list {
   @include outer-container;
   padding: 0 1rem;
+}
+
+.has-no-questions-box {
+  padding: 1rem;
 }
 
 </style>

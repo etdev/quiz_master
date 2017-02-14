@@ -41,6 +41,7 @@ export default {
   data() {
     return { };
   },
+  created() { },
   methods: {
     mainBannerImage() {
       return "/static/main_banner.jpg";
@@ -53,12 +54,13 @@ export default {
 </script>
 
 <style lang="scss" :scoped>
-@import "src/assets/styles/vendor/neat/_neat.scss";
-@import "~assets/styles/base/variables";
+@import "~styles/base/mixins";
+@import "~styles/base/variables";
 
 .home {
   background-color: $bg-color-default;
   padding-bottom: 2rem;
   flex: 1;
+  min-height: 45rem;
 }
 </style>

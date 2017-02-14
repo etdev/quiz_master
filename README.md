@@ -52,6 +52,10 @@ bundle exec rails server
 
 From project root, change to **client** directory
 
+```bash
+cd client
+```
+
 Install **yarn**
 
 ```bash
@@ -78,7 +82,16 @@ Visit `http://localhost:8080` in a browser
 * This project uses stock images from [Pexels](https://www.pexels.com/).
 * This project uses illustrations from [Freepik](http://www.freepik.com/).
 
-## Still Todo
+## Testing
 
-* Increase test coverage, particularly on the front-end
-* Fix up SASS file organization and imports
+Run API tests:
+```bash
+cd api
+bundle exec rspec spec
+```
+
+Run client tests:
+```bash
+cd client
+yarn run unit
+```

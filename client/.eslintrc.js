@@ -37,5 +37,6 @@ module.exports = {
     'arrow-body-style': 0,
     'quotes': 0,
     'prefer-template': 0,
+    'no-restricted-syntax': 0,
   }
 }
