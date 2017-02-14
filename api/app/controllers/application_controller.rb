@@ -15,4 +15,10 @@ class ApplicationController < ActionController::API
       status: status
     }
   end
+
+  def print_errors(errors)
+    errors.map do |attribute_name, error_text|
+      "#{attribute_name} #{error_text}"
+    end
+  end
 end

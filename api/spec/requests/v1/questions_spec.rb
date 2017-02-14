@@ -115,15 +115,15 @@ RSpec.describe "Questions API" do
 
         post v1_questions_path, params: { question: question.attributes }
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:bad_request)
       end
 
-      it "returns unprocessable_entity status when answer is empty" do
+      it "returns bad_request status when answer is empty" do
         question = build(:question, answer: "")
 
         post v1_questions_path, params: { question: question.attributes }
 
-        expect(response).to have_http_status(:unprocessable_entity)
+        expect(response).to have_http_status(:bad_request)
       end
     end
   end

@@ -21,7 +21,7 @@ module V1
       if @question.save
         render json: @question
       else
-        render default_error(@question.errors, :unprocessable_entity)
+        render default_error(print_errors(@question.errors), :bad_request)
       end
     end
 
@@ -32,7 +32,7 @@ module V1
                serializer: QuestionWithAnswerSerializer,
                root: :question
       else
-        render default_error(["Question does not exist"], :not_found)
+        render default_error(print_errors(@question.errors), :bad_request)
       end
     end
 
@@ -41,7 +41,7 @@ module V1
       if @question.destroy
         render json: { result: "success" }
       else
-        render default_error(["Question does not exist"], :not_found)
+        render default_error(["Failed to destroy question"], :bad_request)
       end
     end
 

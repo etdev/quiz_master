@@ -135,8 +135,9 @@ export default {
         (resp) => {
           this.$router.push(`/question/${resp.data.question.id}`);
         },
-        () => {
-          this.flash.show('Failed to create question', 'failure');
+        (error) => {
+          const errors = error.response.data.errors.join("; ");
+          this.flash.show('Failed to create question: ' + errors, 'failure');
           this.scrollToTop();
         },
       );
@@ -146,8 +147,9 @@ export default {
         () => {
           this.$router.push("/");
         },
-        () => {
-          this.flash.show('Failed to update question', 'failure');
+        (error) => {
+          const errors = error.response.data.errors.join("; ");
+          this.flash.show('Failed to update question: ' + errors, 'failure');
           this.scrollToTop();
         },
       );
