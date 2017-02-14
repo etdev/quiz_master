@@ -9,6 +9,8 @@ class Question < ApplicationRecord
 
   paginates_per 12
 
+  default_scope -> { order(updated_at: :desc) }
+
   def correct_answer?(guess)
     sanitize(answer)
       .casecmp(sanitize(guess))
