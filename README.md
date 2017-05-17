@@ -1,6 +1,6 @@
 # QuizMaster
 
-[![circleci](https://circleci.com/gh/fuefw/quiz_master.svg?style=shield)](https://circleci.com/gh/fuefw/quiz_master/)
+[![circleci](https://circleci.com/gh/etdev/quiz_master.svg?style=shield)](https://circleci.com/gh/etdev/quiz_master/)
 
 ## How to Run Locally
 
@@ -76,6 +76,10 @@ yarn run dev
 ```
 
 Visit `http://localhost:8080` in a browser
+
+### Screenshots
+
+![image](https://cloud.githubusercontent.com/assets/6726985/26145547/caf11b0a-3b27-11e7-9741-a83f5bdaf2d2.png)
 
 ## Attributions
 
